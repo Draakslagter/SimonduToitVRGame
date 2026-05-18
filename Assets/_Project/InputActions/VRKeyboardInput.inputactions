@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "VRKeyboardInput",
+    "maps": [
+        {
+            "name": "VRKeyboardMap",
+            "id": "573e4ab6-daa7-4094-b21d-c776c8b5155e",
+            "actions": [
+                {
+                    "name": "QuitGame",
+                    "type": "Button",
+                    "id": "eccdc416-2829-4859-bf94-6b2d28bfd1bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "69201c55-69b7-4f18-95d3-7c5f162846e8",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QuitGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
