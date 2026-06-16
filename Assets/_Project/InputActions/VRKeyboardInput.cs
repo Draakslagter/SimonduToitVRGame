@@ -100,6 +100,15 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShatterTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce8b9a02-613e-42f3-899b-0ffce1952fff"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -113,6 +122,17 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
                     ""action"": ""QuitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""067c29df-2ac9-4115-b9c8-d183305f6ba8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShatterTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
         // VRKeyboardMap
         m_VRKeyboardMap = asset.FindActionMap("VRKeyboardMap", throwIfNotFound: true);
         m_VRKeyboardMap_QuitGame = m_VRKeyboardMap.FindAction("QuitGame", throwIfNotFound: true);
+        m_VRKeyboardMap_ShatterTest = m_VRKeyboardMap.FindAction("ShatterTest", throwIfNotFound: true);
     }
 
     ~@VRKeyboardInput()
@@ -203,6 +224,7 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_VRKeyboardMap;
     private List<IVRKeyboardMapActions> m_VRKeyboardMapActionsCallbackInterfaces = new List<IVRKeyboardMapActions>();
     private readonly InputAction m_VRKeyboardMap_QuitGame;
+    private readonly InputAction m_VRKeyboardMap_ShatterTest;
     /// <summary>
     /// Provides access to input actions defined in input action map "VRKeyboardMap".
     /// </summary>
@@ -218,6 +240,10 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "VRKeyboardMap/QuitGame".
         /// </summary>
         public InputAction @QuitGame => m_Wrapper.m_VRKeyboardMap_QuitGame;
+        /// <summary>
+        /// Provides access to the underlying input action "VRKeyboardMap/ShatterTest".
+        /// </summary>
+        public InputAction @ShatterTest => m_Wrapper.m_VRKeyboardMap_ShatterTest;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -247,6 +273,9 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
             @QuitGame.started += instance.OnQuitGame;
             @QuitGame.performed += instance.OnQuitGame;
             @QuitGame.canceled += instance.OnQuitGame;
+            @ShatterTest.started += instance.OnShatterTest;
+            @ShatterTest.performed += instance.OnShatterTest;
+            @ShatterTest.canceled += instance.OnShatterTest;
         }
 
         /// <summary>
@@ -261,6 +290,9 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
             @QuitGame.started -= instance.OnQuitGame;
             @QuitGame.performed -= instance.OnQuitGame;
             @QuitGame.canceled -= instance.OnQuitGame;
+            @ShatterTest.started -= instance.OnShatterTest;
+            @ShatterTest.performed -= instance.OnShatterTest;
+            @ShatterTest.canceled -= instance.OnShatterTest;
         }
 
         /// <summary>
@@ -308,5 +340,12 @@ public partial class @VRKeyboardInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnQuitGame(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ShatterTest" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShatterTest(InputAction.CallbackContext context);
     }
 }
