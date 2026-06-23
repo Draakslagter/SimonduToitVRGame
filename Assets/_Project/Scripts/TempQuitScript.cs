@@ -8,6 +8,19 @@ public class TempQuitScript : MonoBehaviour
 {
   [SerializeField] private Button quitButton;
 
+  private VRKeyboardInput _inputAction;
+  // Start is called once before the first execution of Update after the MonoBehaviour is created
+  private void Awake()
+  {
+      _inputAction = new VRKeyboardInput();
+      _inputAction.Enable();
+      _inputAction.VRKeyboardMap.QuitGame.performed += QuitGame;
+  }
+
+  private void QuitGame(InputAction.CallbackContext obj)
+  {
+      Application.Quit();
+  }
   private void Start()
   {
     quitButton.onClick.AddListener(QuitGame);

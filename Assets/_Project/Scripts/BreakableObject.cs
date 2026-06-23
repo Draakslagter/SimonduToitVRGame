@@ -22,7 +22,7 @@ public class BreakableObject : MonoBehaviour, IBreakable, IAudible
     [SerializeField] protected float explosionForceMax= 100;
     [SerializeField] protected float explosionForceRadius = 10;
     [SerializeField] protected float fragmentScaleFactor = 1;
-    [SerializeField] protected float shrinkSpeed = 5;
+    [SerializeField] protected float shrinkTime = 5;
     
     [Header("Speed & Break Variables")] 
     private Rigidbody _wholeObjectRigidbody;
@@ -112,6 +112,8 @@ public class BreakableObject : MonoBehaviour, IBreakable, IAudible
                 rb.AddExplosionForce(Random.Range(explosionForceMin, explosionForceMax),
                     _wholeObjectTransform.position, explosionForceRadius);
             }
+            Shrink(fragment);
+            
         }
         ScorePoints();
     }
@@ -119,9 +121,13 @@ public class BreakableObject : MonoBehaviour, IBreakable, IAudible
     {
         OnScorePoints.Invoke(dirtyBreakPoints, false, true);
     }
-    protected void Shrink(Transform fragment)
+
+    private void Shrink(Transform fragment)
     {
-        fragment.DOScale(fragmentScaleFactor, shrinkSpeed).SetEase(Ease.Linear);
+        fragment.DOScale(fragmentScaleFactor, shrinkTime).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            fragment.gameObject.SetActive(false);
+        });
     }
 
     public void SetAudioBehaviour(AudioBehaviour audioBehaviour)

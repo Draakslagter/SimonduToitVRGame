@@ -1344,8 +1344,8 @@ MonoBehaviour:
   explosionForceMin: 5
   explosionForceMax: 100
   explosionForceRadius: 10
-  fragmentScaleFactor: 1
-  shrinkSpeed: 5
+  fragmentScaleFactor: 0.1
+  shrinkTime: 10
   breakSpeed: 1
   cleanPoints: 50
   dirtyBreakPoints: 100
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   explosionForceMax: 100
   explosionForceRadius: 10
   fragmentScaleFactor: 1
-  shrinkSpeed: 5
+  shrinkTime: 5
   breakSpeed: 100
   cleanPoints: 50
   dirtyBreakPoints: 100

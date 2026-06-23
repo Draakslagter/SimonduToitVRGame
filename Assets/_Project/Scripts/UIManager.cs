@@ -29,6 +29,6 @@ public class UIManager : MonoBehaviour
 
     private void UpdateTimerUI(float time)
     {
-        timerText.text = $"Time: {time}";
+        timerText.text = $"Time: {time:00}";
     }
 }
